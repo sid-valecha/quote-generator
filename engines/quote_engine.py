@@ -26,5 +26,5 @@ def generate_quote() -> str:
     author = quote_data.get('Author', 'Unknown')
     quote = quote_data.get('Quote', '')
     
-    return f"This is a quote about {category} by {author}: {quote}."
+    return f"This is a quote about {category} by {author}: \n{quote}."
 
