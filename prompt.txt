@@ -1,0 +1,15 @@
+You are working in the quote-generator repo. Read api/main.py and engines/quote_engine.py before changing anything.
+
+Task: Add category filtering to the quote API.
+
+1. Update engines/quote_engine.py — add optional `category: str | None = None` param to generate_quote(). Filter quotes by Category field (case-insensitive). Raise ValueError("No
+quotes found for category: <category>") if no matches.
+
+2. Update api/main.py — add optional `category` query param to GET /api/quote. Pass to generate_quote(). On ValueError, return HTTP 404 with detail "No quotes found for that
+category."
+
+3. Add tests/test_category_filter.py using pytest and FastAPI TestClient:
+   - No category → returns a quote
+   - category=life → returns non-empty quote
+   - category=nonexistent_xyz → HTTP 404
+   Import app from api.main. Use: from starlette.testclient import TestClient
